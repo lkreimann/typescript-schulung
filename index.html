@@ -22,7 +22,7 @@
 						<img src="media/ts-logo-256.png" alt="TypeScript logo"
 							style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
 					</a>
-					<h3>TypeScript-Schulung</h3>
+					<h2>TypeScript-Schulung</h2>
 					<p>
 						<small>Erstellt von <a href="https://github.com/lkreimann">Lea Reimann</a></small>
 					</p>
@@ -31,14 +31,217 @@
 				<section>
 					<h2>TypeScript</h2>
 					<ul>
-						<li></li>
+						<li>TypeScript baut auf JavaScript auf
+							<ul>
+								<li>auf der Website steht es so: <a href="https://www.typescriptlang.org/"><em>"TypeScript is JavaScript with syntax for types"</em></a></li>
+							</ul>
+						</li>
+						<li>TypeScript gibt es seit dem 1. Oktober 2012</li>
+						<li>TypeScript wurde von Microsoft entwickelt und auch dort weiterentwickelt</li>
+						<li>Hilfreich ist TypeScript vor allem während der Entwicklung, um Fehler zu reduzieren</li>
 					</ul>
 				</section>
 
 				<!-- Data types -->
-				<!-- Types -->
+				<section>
+					<section>
+						<h2>Datentypen</h2>
+
+						<ul>
+							<li><code>string</code></li>
+							<li><code>number</code> (sowohl Integer als auch Floats)</li>
+							<li><code>boolean</code> für Wahrheitswerte</li>
+							<li><code>array</code></li>
+							<li><code>object</code></li>
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">
+								<code>Date</code>
+							</a></li>
+							<li><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#any"><code>any</code></a></li>
+							<li><code>unknown</code></li>
+						</ul>
+
+						<p>
+							<small>Die meisten dieser Datentypen existieren auch in JavaScript, meist jedoch nur implizit. <br>
+							Dies in funktioniert in JavaScript z. B. mit <code>.toString()</code> oder <code>parseInt()</code></small></p>
+
+						<aside class="notes">
+							<ul>
+								<li><code>array</code> kann mit anderen Typen in Kombination genutzt werden (siehe Beispiele)</li>
+								<li><code>any</code> hebelt jegliches Type-Checking aus, eigentlich wie in JavaScript</li>
+								<li><code>unknown</code> - hier muss eine Typprüfung vor der Nutzung erfolgen, mehr dazu später</li>
+							</ul>
+
+						</aside>
+					</section>
+
+					<section>
+						<h3>Beispiele</h3>
+
+						<pre data-id="code-animation"><code class="hljs">
+							const name: string;
+
+							const age: number;
+
+							const birthdate: Date;
+
+							const isTrainee: boolean;
+
+							const pets: string[];
+
+							const thisCanBeAnything: any;
+						</code></pre>
+					</section>
+
+					<section>
+						<h3>Type-Checking</h3>
+						<p>Wenn du den Typ <code>unknown</code> verwendest, kommst du um das Type-Checking nicht herum</p>
+
+						<code></code>
+					</section>
+
+					<!-- Types -->
+					<section>
+						<h3>Eigene Types erstellen</h3>
+						<p>Dies ist hilfreich, wenn man weiß, welche Werte der Typ annehmen kann oder welche für die Anwendung relevant sind.</p>
+						
+						<pre data-id="code-animation"><code class="hljs" data-trim>
+							type seasons: 'Spring' | 'Summer' | 'Autumn' | 'Winter';
+						</code></pre>
+					</section>
+
+					<!-- Union Types -->
+					<section>
+						<h3>Union Types</h3>
+						
+						<p>Es kommt vor, dass Variablen verschiedene Datentypen annehmen können, dann sind <em>Union Types</em> hilfreich</p>
+
+						<pre data-id="code-animation">
+							<code class="hljs">
+							</code>
+						</pre>
+					</section>
+				</section>
+
 				<!-- Interfaces -->
+				<section>
+					<section>
+						<h2>Interfaces</h2>
+						<p>Interfaces sind Beschreibungen von Objekten. Sie geben Aufschluss über die Struktur und Inhalte eines Objekts und können
+						als Bauplan genutzt werden.</p>
+						<p>Sie sind dann besonders hilfreich, wenn komplexe Daten verarbeitet werden müssen oder Daten zusammengestellt werden.</p>
+						<p>Optionale Felder in einem Interface können mit einem <code>?</code> markiert werden.</p>
+					</section>
+					
+					<section>
+						<h3>Beispiel</h3>
+						<pre data-id="code-animation">
+							<code class="hljs">
+								interface Developer {
+									age: number,
+									name: string,
+									favouriteMeals: string[],
+									isTrainee: boolean,
+									colleagues?: Developer[]
+								}
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>Beispiel: Machen wir ein Objekt daraus</h3>
+						<pre data-id="code-animation">
+							<code class="hljs">
+								const Lea: Developer {
+									age: 27,
+									name: "Lea",
+									favouriteMeals: ['Pizza', 'Salat', 'Kartoffelbrei' ],
+									isTrainee: false,
+									colleagues: [
+										{
+											name: 'Cat',
+											...
+										},
+										{
+											name: 'Manfred',
+											...
+										},
+										...
+									]
+								}
+							</code>
+						</pre>
+					</section>
+				</section>
+
 				<!-- Functions -->
+				<section>
+					<section>
+						<h2>Funktionen</h2>
+						<p>Funktionen gibt es sowohl in JavaScript als auch in TypeScript. <br>
+							Der Unterschied ist auch hier wieder: Typisierung.
+						</p>
+
+						<pre data-id="code-animation">
+							<code class="hljs" data-trim>
+								function sayName(name) {
+									console.log('Your name is ' + name);
+								}
+							</code>
+						</pre>
+
+						<pre data-id="code-animation">
+							<code class="hljs" data-trim>
+								function sayName(name: string) {
+									console.log('Your name is ' + name);
+								}
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>Funktionen mit Union-Types</h3>
+
+						<pre data-id="code-animation">
+							<code class="hljs" data-trim>
+								function sayName(name: string) {
+									console.log('Your name is ' + name);
+								}
+							</code>
+						</pre>
+
+						<p><small><a href="">Quelle</a></small></p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Ausprobieren</h2>
+
+					<p><a href="https://www.typescriptlang.org/play">TypeScript Playground</a></p>
+				</section>
+
+				<section>
+					<h2>Weiterlesen</h2>
+					
+					<p><a href="https://www.typescriptlang.org/docs/handbook/intro.html">TypeScript Handbook</a></p>
+				</section>
+
+				<section>
+					<h2>Quellen</h2>
+					<ul>
+						<li><a href="https://www.typescriptlang.org/">Website von TypeScript</a></li>
+						<li><a href="https://www.typescriptlang.org/docs/handbook/">TypeScript Handbook</a></li>
+
+					</ul>
+				</section>
+
+				<section>
+					<h2>Vielen Dank für eure Aufmerksamkeit!</h2>
+					<p>
+						<small>Made with <a href="https://revealjs.com">reveal.js</a></small>
+					</p>
+					<p><small>Für eine Übersicht aller Folien, einfach auf ESC drücken</small></p>
+					<p><small><a href="https://github.com/lkreimann/typescript-schulung">Source Code</a> der Präsentation</small></p>
+				</section>
 		</div>
 
 		<script src="dist/reveal.js"></script>
