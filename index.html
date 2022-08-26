@@ -37,7 +37,7 @@
 							</ul>
 						</li>
 						<li>TypeScript gibt es seit dem 1. Oktober 2012</li>
-						<li>TypeScript wurde von Microsoft entwickelt und auch dort weiterentwickelt</li>
+						<li>TypeScript wurde von Microsoft entwickelt und wird auch dort weiterentwickelt</li>
 						<li>Hilfreich ist TypeScript vor allem während der Entwicklung, um Fehler zu reduzieren</li>
 					</ul>
 				</section>
@@ -77,7 +77,7 @@
 					<section>
 						<h3>Beispiele</h3>
 
-						<pre data-id="code-animation"><code class="hljs">
+						<pre data-id="code-animation"><code class="typescriptlang">
 							const name: string;
 
 							const age: number;
@@ -102,9 +102,9 @@
 					<!-- Types -->
 					<section>
 						<h3>Eigene Types erstellen</h3>
-						<p>Dies ist hilfreich, wenn man weiß, welche Werte der Typ annehmen kann oder welche für die Anwendung relevant sind.</p>
+						<p>Eigene <code>Type</code>s sind hilfreich, wenn man weiß, welche Werte der Typ annehmen kann oder welche für die Anwendung relevant sind.</p>
 						
-						<pre data-id="code-animation"><code class="hljs" data-trim>
+						<pre data-id="code-animation"><code class="typescriptlang" data-trim>
 							type seasons: 'Spring' | 'Summer' | 'Autumn' | 'Winter';
 						</code></pre>
 					</section>
@@ -116,7 +116,8 @@
 						<p>Es kommt vor, dass Variablen verschiedene Datentypen annehmen können, dann sind <em>Union Types</em> hilfreich</p>
 
 						<pre data-id="code-animation">
-							<code class="hljs">
+							<code class="typescriptlang">
+								const id: string | number;
 							</code>
 						</pre>
 					</section>
@@ -135,7 +136,7 @@
 					<section>
 						<h3>Beispiel</h3>
 						<pre data-id="code-animation">
-							<code class="hljs">
+							<code class="typescriptlang">
 								interface Developer {
 									age: number,
 									name: string,
@@ -150,7 +151,7 @@
 					<section>
 						<h3>Beispiel: Machen wir ein Objekt daraus</h3>
 						<pre data-id="code-animation">
-							<code class="hljs">
+							<code class="typescriptlang" data-trim>
 								const Lea: Developer {
 									age: 27,
 									name: "Lea",
@@ -182,7 +183,8 @@
 						</p>
 
 						<pre data-id="code-animation">
-							<code class="hljs" data-trim>
+							<code class="javascript" data-trim>
+								// JavaScript
 								function sayName(name) {
 									console.log('Your name is ' + name);
 								}
@@ -190,7 +192,8 @@
 						</pre>
 
 						<pre data-id="code-animation">
-							<code class="hljs" data-trim>
+							<code class="typescriptlang" data-trim>
+								// TypeScript
 								function sayName(name: string) {
 									console.log('Your name is ' + name);
 								}
@@ -202,14 +205,20 @@
 						<h3>Funktionen mit Union-Types</h3>
 
 						<pre data-id="code-animation">
-							<code class="hljs" data-trim>
-								function sayName(name: string) {
-									console.log('Your name is ' + name);
+							<code class="typescriptlang" data-trim>
+								function printId(id: number | string) {
+									if (typeof id === "string") {
+										// In this branch, id is of type 'string'
+										console.log(id.toUpperCase());
+									} else {
+										// Here, id is of type 'number'
+										console.log(id);
+									}
 								}
 							</code>
 						</pre>
 
-						<p><small><a href="">Quelle</a></small></p>
+						<p><small><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types">Quelle</a></small></p>
 					</section>
 				</section>
 
