@@ -40,6 +40,10 @@
 						<li>TypeScript wurde von Microsoft entwickelt und wird auch dort weiterentwickelt</li>
 						<li>Hilfreich ist TypeScript vor allem während der Entwicklung, um Fehler zu reduzieren</li>
 					</ul>
+
+					<aside class="notes">
+						Fun fact: Visual Studio Code (Editor) nutzt TypeScript "under the hood", um die Arbeit mit JavaScript zu vereinfachen
+					</aside>
 				</section>
 
 				<!-- Data types -->
@@ -51,26 +55,43 @@
 							<li><code>string</code></li>
 							<li><code>number</code> (sowohl Integer als auch Floats)</li>
 							<li><code>boolean</code> für Wahrheitswerte</li>
-							<li><code>array</code></li>
-							<li><code>object</code></li>
 							<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">
 								<code>Date</code>
 							</a></li>
-							<li><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#any"><code>any</code></a></li>
-							<li><code>unknown</code></li>
+							<li><code>array</code> (Beispiel: <code>string[]</code>)</li>
+							<li><code>object</code></li>
 						</ul>
 
 						<p>
-							<small>Die meisten dieser Datentypen existieren auch in JavaScript, meist jedoch nur implizit. <br>
-							Dies in funktioniert in JavaScript z. B. mit <code>.toString()</code> oder <code>parseInt()</code></small></p>
+							<small>Diese Datentypen existieren auch in JavaScript, meist jedoch nur implizit (<em>language primitives</em>), z. B. mit <code>.toString()</code> oder <code>parseInt()</code>.</small>
+							<small>Mit TypeScript können wir diese explizit bzw. zum Typisieren nutzen.</small>
+						</p>
 
 						<aside class="notes">
 							<ul>
 								<li><code>array</code> kann mit anderen Typen in Kombination genutzt werden (siehe Beispiele)</li>
+								<li><code>null</code> und <code>undefined</code> können auch als Typen genutzt werden, sollte aber nicht getan werden, wenn es vermeidbar ist</li>
+								<li>Primitive types in JavaScript: boolean, bigint, null, number, string, symbol, and undefined</li>
+							</ul>
+
+						</aside>
+					</section>
+
+					<section>
+						<h3>Datentypen in TypeScript</h3>
+
+						<ul>
+							<li><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#any"><code>any</code></a></li>
+							<li><code>unknown</code></li>
+							<li>never</li>
+							<li>void</li>
+						</ul>
+				
+						<aside class="notes">
+							<ul>
 								<li><code>any</code> hebelt jegliches Type-Checking aus, eigentlich wie in JavaScript</li>
 								<li><code>unknown</code> - hier muss eine Typprüfung vor der Nutzung erfolgen, mehr dazu später</li>
 							</ul>
-
 						</aside>
 					</section>
 
@@ -101,12 +122,17 @@
 
 					<!-- Types -->
 					<section>
-						<h3>Eigene Types erstellen</h3>
-						<p>Eigene <code>Type</code>s sind hilfreich, wenn man weiß, welche Werte der Typ annehmen kann oder welche für die Anwendung relevant sind.</p>
+						<h3>Eigene Type Aliases erstellen</h3>
+						<p>Eigene <code>Type Aliases</code>s sind hilfreich, wenn man weiß, welche Werte der Typ annehmen kann oder welche für die Anwendung relevant sind.</p>
 						
 						<pre data-id="code-animation"><code class="typescriptlang" data-trim>
 							type seasons: 'Spring' | 'Summer' | 'Autumn' | 'Winter';
+
+							type fibonacciNumbers: 1 | 2 | 3 | 5 | 8 | 13 | 21; // ... 
 						</code></pre>
+
+						<p><small>Es gibt noch andere Wege, wie Type Aliases genutzt werden können: 
+							<a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases">siehe Handbuch</a></small></p>
 					</section>
 
 					<!-- Union Types -->
@@ -178,9 +204,7 @@
 				<section>
 					<section>
 						<h2>Funktionen</h2>
-						<p>Funktionen gibt es sowohl in JavaScript als auch in TypeScript. <br>
-							Der Unterschied ist auch hier wieder: Typisierung.
-						</p>
+						<p>Funktionen gibt es bereits in JavaScript, mit TypeScript können diese typsicherer gemacht werden.</p>
 
 						<pre data-id="code-animation">
 							<code class="javascript" data-trim>
@@ -222,6 +246,44 @@
 					</section>
 				</section>
 
+
+				<!-- Classes-->
+				<section>
+					<h2>Klassen</h2>
+					<p>Klassen gibt es auch schon in JavaScript, TypeScript macht auch diese typsicherer.</p>
+				
+					<p>
+						<a
+							href="https://www.typescriptlang.org/play#code/JYOwLgpgTgZghgYwgAgKoGdrIN4ChnIhwC2EAXMumFKAOYDc+ywAJhSAK7EBG0jAvrlwIANnHTo0mKAEEECAPYdwOJkVIUqNEAyat2XXlEZNFILRwRgFUABTrylanQA0zNoUPQAlKoIEwAAtgdAA6B2QAXkISCEZ-ZCCQ0NYo93jkQUFhBXMwZA5pCgwsaJAIAHcpaDlFZTBbACIAWQ4oAAdAgE9GtwBGb3ogA">Beispiel</a>
+						(<a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html">Quelle</a>)
+					</p>
+				</section>
+
+				<!-- Frameworks -->
+				<section>
+					<h2>Frameworks</h2>
+					<p>In folgenden Frameworks wird mit TypeScript gearbeitet oder es ist möglich</p>
+					<ul>
+						<li>Angular</li>
+						<li>Nest.js</li>
+						<li>React</li>
+						<li>Express</li>
+						<li>...</li>
+					</ul>
+					<p><small>Diese Liste erhebt keinen Anspruch auf Vollständigkeit</small></p>
+					
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<!-- Usage -->
+				<section>
+					<h2>It transpiles</h2>
+
+
+				</section>
+
 				<section>
 					<h2>Ausprobieren</h2>
 
@@ -232,6 +294,12 @@
 					<h2>Weiterlesen</h2>
 					
 					<p><a href="https://www.typescriptlang.org/docs/handbook/intro.html">TypeScript Handbook</a></p>
+					<!-- <p><a href="">freeCodeCamp: </a></p> -->
+					<p>
+						<a href="https://www.freecodecamp.org/news/the-top-stack-overflowed-typescript-questions-explained/#1-what-is-the-difference-between-interfaces-vs-types-in-typescript">
+							freeCodeCamp: Top StackOverflow'ed TypeScript Questions Explained
+						</a>
+					</p>
 				</section>
 
 				<section>
@@ -239,7 +307,6 @@
 					<ul>
 						<li><a href="https://www.typescriptlang.org/">Website von TypeScript</a></li>
 						<li><a href="https://www.typescriptlang.org/docs/handbook/">TypeScript Handbook</a></li>
-
 					</ul>
 				</section>
 
