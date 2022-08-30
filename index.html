@@ -63,7 +63,7 @@
 						</ul>
 
 						<p>
-							<small>Diese Datentypen existieren auch in JavaScript, meist jedoch nur implizit (<em>language primitives</em>), z. B. mit <code>.toString()</code> oder <code>parseInt()</code>.</small>
+							<small>Diese Datentypen existieren in JavaScript, meist jedoch nur implizit (<em>language primitives</em>), z. B. mit <code>.toString()</code> oder <code>parseInt()</code>.</small>
 							<small>Mit TypeScript können wir diese explizit bzw. zum Typisieren nutzen.</small>
 						</p>
 
@@ -78,7 +78,7 @@
 					</section>
 
 					<section>
-						<h3>Datentypen in TypeScript</h3>
+						<h3>Neue Datentypen mit TypeScript</h3>
 
 						<ul>
 							<li><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#any"><code>any</code></a></li>
@@ -96,9 +96,9 @@
 					</section>
 
 					<section>
-						<h3>Beispiele</h3>
+						<h3>Beispiele: Explizites Typisieren</h3>
 
-						<pre data-id="code-animation"><code class="typescriptlang">
+						<pre data-id="code-animation"><code class="typescript">
 							const name: string;
 
 							const age: number;
@@ -114,6 +114,22 @@
 					</section>
 
 					<section>
+						<h3>Beispiele: Implizites Typsieren</h3>
+						
+						<pre data-id="code-animation">
+							<code class="typescript">
+								let name = 'Lea';
+
+								let number = '42';
+
+								let isBoolean = true;
+							</code>
+						</pre>
+
+						<p>Das funktioniert aber natürlich nur, wenn ein Wert zum Initialisieren bereits bekannt ist.</p>
+					</section>
+
+					<section>
 						<h3>Type-Checking</h3>
 						<p>Wenn du den Typ <code>unknown</code> verwendest, kommst du um das Type-Checking nicht herum</p>
 
@@ -123,9 +139,9 @@
 					<!-- Types -->
 					<section>
 						<h3>Eigene Type Aliases erstellen</h3>
-						<p>Eigene <code>Type Aliases</code>s sind hilfreich, wenn man weiß, welche Werte der Typ annehmen kann oder welche für die Anwendung relevant sind.</p>
+						<p>Eigene <code>Type Aliases</code> sind hilfreich, wenn man weiß, welche Werte der Typ annehmen kann oder welche für die Anwendung relevant sind.</p>
 						
-						<pre data-id="code-animation"><code class="typescriptlang" data-trim>
+						<pre data-id="code-animation"><code class="typescript" data-trim>
 							type seasons: 'Spring' | 'Summer' | 'Autumn' | 'Winter';
 
 							type fibonacciNumbers: 1 | 2 | 3 | 5 | 8 | 13 | 21; // ... 
@@ -142,7 +158,7 @@
 						<p>Es kommt vor, dass Variablen verschiedene Datentypen annehmen können, dann sind <em>Union Types</em> hilfreich</p>
 
 						<pre data-id="code-animation">
-							<code class="typescriptlang">
+							<code class="typescript">
 								const id: string | number;
 							</code>
 						</pre>
@@ -162,7 +178,7 @@
 					<section>
 						<h3>Beispiel</h3>
 						<pre data-id="code-animation">
-							<code class="typescriptlang">
+							<code class="typescript">
 								interface Developer {
 									age: number,
 									name: string,
@@ -177,26 +193,21 @@
 					<section>
 						<h3>Beispiel: Machen wir ein Objekt daraus</h3>
 						<pre data-id="code-animation">
-							<code class="typescriptlang" data-trim>
-								const Lea: Developer {
-									age: 27,
-									name: "Lea",
-									favouriteMeals: ['Pizza', 'Salat', 'Kartoffelbrei' ],
-									isTrainee: false,
-									colleagues: [
-										{
-											name: 'Cat',
+							<code class="typescript" data-trim>
+									const Lea: Developer = {
+										age: 27,
+										name: "Lea",
+										favouriteMeals: ['Pizza', 'Salat', 'Kartoffelbrei' ],
+										isTrainee: false,
+										colleagues: [
+											{ name: 'Cat', ... },
+											{ name: 'Manfred', ... },
 											...
-										},
-										{
-											name: 'Manfred',
-											...
-										},
-										...
-									]
-								}
+										]
+									}
 							</code>
 						</pre>
+						<p><small><a href="https://www.typescriptlang.org/play?#code/JYOwLgpgTgZghgYwgAgCIQG4QDYHsAO0yA3gFDLJwDmEAXMiAK4C2ARtADTkNzN3IBnMFFBUuFeBlyMRkALIQ42AfSEiQVANoBdccmACAKlDigI-VrlzZFIPQms3qjCAID89dFjyEoO0gC+pKQOIELIADKKnpg4BEQAvCTc1PwATADseiC8-ABEUXB5epLSshAKSirImgDkAArAAF5NcLUcyLUAykpwYO2dANJwUGC4MDA4rFAQwLXIutwGxqYg5vTwyhD2jopULtWa3BTEPHz0tQDCfQMAdPfIAXonZ-y1cnAgMDMAJncPT2OyHut242kCQA">TypeScript Playground</a></small></p>
 					</section>
 				</section>
 
@@ -216,7 +227,7 @@
 						</pre>
 
 						<pre data-id="code-animation">
-							<code class="typescriptlang" data-trim>
+							<code class="typescript" data-trim>
 								// TypeScript
 								function sayName(name: string) {
 									console.log('Your name is ' + name);
@@ -229,7 +240,7 @@
 						<h3>Funktionen mit Union-Types</h3>
 
 						<pre data-id="code-animation">
-							<code class="typescriptlang" data-trim>
+							<code class="typescript" data-trim>
 								function printId(id: number | string) {
 									if (typeof id === "string") {
 										// In this branch, id is of type 'string'
@@ -244,13 +255,30 @@
 
 						<p><small><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types">Quelle</a></small></p>
 					</section>
-				</section>
 
+					<section>
+						<h3>Rückgabe typisieren</h3>
+
+						<p>Rückgabewerte können natürlich auch typisiert werden</p>
+
+						<pre data-id="code-animation">
+							<code class="typescript" data-trim>
+								function add(a: number, b: number): number {
+									return a + b;
+								}
+
+								function showAdditionResult(a: number, b: number): void {
+									console.log(a + b)
+								}
+							</code>
+						</pre>
+					</section>
+				</section>
 
 				<!-- Classes-->
 				<section>
 					<h2>Klassen</h2>
-					<p>Klassen gibt es auch schon in JavaScript, TypeScript macht auch diese typsicherer.</p>
+					<p>Klassen gibt es auch in JavaScript, TypeScript macht diese typsicherer.</p>
 				
 					<p>
 						<a
@@ -281,6 +309,12 @@
 				<section>
 					<h2>It compiles</h2>
 
+					<pre data-id="code-animation">
+						<code class="bash">
+							npm install -g typescript
+						</code>
+					</pre>
+
 					<p>
 						<a href="https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html">Hier</a> 
 						findest du die Anleitung zur Benutzung von TypeScript (Installation, Kompilieren etc.)
@@ -294,15 +328,20 @@
 				</section>
 
 				<section>
-					<h2>Weiterlesen</h2>
+					<h2>Weiterlernen</h2>
 					
-					<p><a href="https://www.typescriptlang.org/docs/handbook/intro.html">TypeScript Handbook</a></p>
-					<!-- <p><a href="">freeCodeCamp: </a></p> -->
-					<p>
-						<a href="https://www.freecodecamp.org/news/the-top-stack-overflowed-typescript-questions-explained/#1-what-is-the-difference-between-interfaces-vs-types-in-typescript">
-							freeCodeCamp: Top StackOverflow'ed TypeScript Questions Explained
-						</a>
-					</p>
+					<ul>
+						<li><a href="https://www.typescriptlang.org/docs/handbook/intro.html">TypeScript Handbook</a></li>
+						<li><a href="https://www.youtube.com/watch?v=ahCwqrYpIuM">YouTube: TypeScript - The Basics</a></li>
+						<!-- <p><a href="">freeCodeCamp: </a></p> -->
+						<li>
+							<a href="https://www.freecodecamp.org/news/the-top-stack-overflowed-typescript-questions-explained/#1-what-is-the-difference-between-interfaces-vs-types-in-typescript">
+								freeCodeCamp: Top StackOverflow'ed TypeScript Questions Explained
+							</a>
+						</li>
+						<li><a href="https://basarat.gitbook.io/typescript/">TypeScript Deep Dive</a></li>
+					</ul>
+					
 				</section>
 
 				<section>
