@@ -120,7 +120,7 @@
 							<code class="typescript">
 								let name = 'Lea';
 
-								let number = '42';
+								let number = 42;
 
 								let isBoolean = true;
 							</code>
@@ -133,7 +133,23 @@
 						<h3>Type-Checking</h3>
 						<p>Wenn du den Typ <code>unknown</code> verwendest, kommst du um das Type-Checking nicht herum</p>
 
-						<code></code>
+						<pre data-id="code-animation"><code class="typescript" data-trim>
+							function makeIDtoString(id: unknown): string {
+								if (typeof id === 'number') {
+									return id.toString();
+								} else if (typeof id === 'string') {
+									return id;
+								} else {
+									return 'ID is malformed';
+								}
+							}
+						</code></pre>
+
+						<p><small><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAWwIYGsCmBJAIlOAZSgCcYwBzAChgBMAuRcdMOAdzAEpGBnU8iogDeAKESIYwRFSgBPAA6Y4UuogC8GxAHIwIZACNMJLZ2FjxiEpiggSSOgDoCxMpSqcA3OYC+iTABseTAkpGQUlFVp1TS0+VwoTMwtLa1t7Wi9xXwCgpIsrGzttPAkeFFR-YDgSZExaLUzEbxFmkQgEHjh-TAd-OGo0LDxnfjcAZk5PNo6unr6BjBx8IlHqLQAWACYTTmmwTu7e-qpBpZH4qnBaTGByOsmvIA">Im TypeScript Playground öffnen</a></small></p>
+
+						<aside class="notes">
+							In diesem Beispiel ist vielleicht aber auch eher ein Union Type sinnvoll
+						</aside>
 					</section>
 
 					<!-- Types -->
@@ -332,7 +348,7 @@
 					
 					<ul>
 						<li><a href="https://www.typescriptlang.org/docs/handbook/intro.html">TypeScript Handbook</a></li>
-						<p><a href="https://www.freecodecamp.org/news/what-is-typescript-for-beginners/">freeCodeCamp: What is TypeScript? A Beginner's Guide</a></p>
+						<li><a href="https://www.freecodecamp.org/news/what-is-typescript-for-beginners/">freeCodeCamp: What is TypeScript? A Beginner's Guide</a></li>
 						<li><a href="https://www.youtube.com/watch?v=ahCwqrYpIuM">YouTube: TypeScript - The Basics</a></li>
 						<li>
 							<a href="https://www.freecodecamp.org/news/the-top-stack-overflowed-typescript-questions-explained/#1-what-is-the-difference-between-interfaces-vs-types-in-typescript">
@@ -355,7 +371,7 @@
 				<section>
 					<h2>Vielen Dank für eure Aufmerksamkeit!</h2>
 					<p>
-						<small>Made with <a href="https://revealjs.com">reveal.js</a></small>
+						<small>Presentation made with <a href="https://revealjs.com">reveal.js</a></small>
 					</p>
 					<p><small>Für eine Übersicht aller Folien, einfach auf ESC drücken</small></p>
 					<p><small><a href="https://github.com/lkreimann/typescript-schulung">Source Code</a> der Präsentation</small></p>
