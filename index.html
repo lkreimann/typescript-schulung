@@ -37,7 +37,7 @@
 							</ul>
 						</li>
 						<li>TypeScript gibt es seit Oktober 2012</li>
-						<li>TypeScript wurde von Microsoft entwickelt und wird auch dort weiterentwickelt</li>
+						<li>TypeScript wurde von Microsoft entwickelt und wird dort auch weiterentwickelt</li>
 						<li>Hilfreich ist TypeScript vor allem während der Entwicklung, um Fehler zu reduzieren</li>
 					</ul>
 
@@ -96,21 +96,27 @@
 					</section>
 
 					<section>
+						<h3>Wieso überhaupt typisieren?</h3>
+						<ul>
+							<li>Vermeidung von Laufzeitfehlern</li>
+							<li>Genau wissen, welche Datentypen wo möglich sind</li>
+							<li>Feste Struktur und Angaben, auch für spätere Weiterentwicklung</li>
+						</ul>
+					</section>
+
+					<section>
 						<h3>Beispiele: Explizites Typisieren</h3>
 
 						<pre data-id="code-animation"><code class="typescript">
-							const name: string;
-
-							const age: number;
-
-							const birthdate: Date;
-
-							const isTrainee: boolean;
-
-							const pets: string[];
-
-							const thisCanBeAnything: any;
+							let username: string;
+							let age: number;
+							let birthdate: Date;
+							let isTrainee: boolean;
+							let pets: string[];
+							let thisCanBeAnything: any;
 						</code></pre>
+
+						<p><a href="https://www.typescriptlang.org/play?ssl=10&ssc=27&pln=8&pc=1#code/DYUwLgBArgziBOA7AhgWxALgjM8CWiA5gNwBQokyhmEiUqARgmRRA3vGABYAmyYNACL8QLcBDwwAKvGQEQNBgHsloZIjGQADuBhYc+IgG0AupojdJAYXUAhEAEFEAT0tEs652VKWYNxPZOrlwEhBAAvBAA5AAMUWS+-oEubmGRMQkhfnaOKSFEERAAZsjAcMRAA">TypeScript Playground</a></p>
 					</section>
 
 					<section>
@@ -118,7 +124,7 @@
 						
 						<pre data-id="code-animation">
 							<code class="typescript">
-								let name = 'Lea';
+								let username = 'Lea';
 
 								let number = 42;
 
@@ -127,6 +133,7 @@
 						</pre>
 
 						<p>Das funktioniert aber natürlich nur, wenn ein Wert zum Initialisieren bereits bekannt ist.</p>
+						<p><a href="https://www.typescriptlang.org/play?#code/DYUwLgBArgziBOA7AhgWxBAvBA5AGRGRwG4AoUSRKVAIwSwgBYAmMiiASxgCEB7X0MkQMw8KCDJA">TypeScript Playground</a></p>
 					</section>
 
 					<section>
@@ -366,6 +373,7 @@
 						<li><a href="https://www.typescriptlang.org/">Website von TypeScript</a></li>
 						<li><a href="https://devblogs.microsoft.com/typescript/announcing-typescript-1-0/">Announcing TypeScript 1.0</a></li>
 						<li><a href="https://www.typescriptlang.org/docs/handbook/">TypeScript Handbook</a></li>
+						<li><a href="https://de.wikipedia.org/wiki/Typisierung_(Informatik)">Wikipedia: Typisierung (Informatik)</a></li>
 					</ul>
 				</section>
 
